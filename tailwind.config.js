@@ -20,6 +20,9 @@ export default {
           500: "#404040",
         },
         error: "#FF5630",
+        success: {
+          50: "#ECFDF3",
+        },
       },
       height: {
         "screen-85": "85vh",
@@ -32,6 +35,8 @@ export default {
           "0px 0px 0px 4px #F4EBFF, 0px 1px 2px 0px rgba(16, 24, 40, 0.05)",
         "Input-error":
           "0px 0px 0px 4px #FEE4E2, 0px 1px 2px 0px rgba(16, 24, 40, 0.05)",
+        "table-shadow":
+          "0px 1px 2px 0px rgba(16, 24, 40, 0.06), 0px 1px 3px 0px rgba(16, 24, 40, 0.10)",
       },
       container: {
         center: true,
