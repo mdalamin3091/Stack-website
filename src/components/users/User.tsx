@@ -1,10 +1,10 @@
 import { FC } from "react";
-import { IUserResponse } from "../../types";
+import { IUserDataResponse } from "../../types";
 import DeleteIcon from "../../assets/icons/DeleteIcon";
 import EditIcon from "../../assets/icons/EditIcon";
 
 interface PropsType {
-  user: IUserResponse;
+  user: IUserDataResponse;
 }
 
 const User: FC<PropsType> = ({ user }) => {

@@ -43,10 +43,18 @@ export interface IdashboardSidebarItems {
   link: string;
 }
 
-export interface IUserResponse {
+export interface IUserDataResponse {
   id: number;
   email: string;
   first_name: string;
   last_name: string;
   avatar: string;
+}
+
+export interface IUserResponse {
+  data: IUserDataResponse;
+  page?: number;
+  total_pages?: number;
+  per_page?: number;
+  total?: number;
 }

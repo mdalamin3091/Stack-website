@@ -41,7 +41,7 @@ const SignIn = () => {
   return (
     <Fragment>
       <main className="min-h-[88vh] flex items-center justify-center container">
-        <div className="max-w-[444px] w-full text-center shadow-lg rounded-md min-h-[576px] flex items-start justify-center flex-col p-16 ">
+        <div className="max-w-[444px] w-full text-center shadow-lg rounded-2xl min-h-[576px] flex items-start justify-center flex-col p-16 border border-secondary-600 ">
           <div>
             <Logo />
             <p className="text-lg font-semibold leading-6 mb-12 mt-5 text-secondary-500">

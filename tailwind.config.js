@@ -18,6 +18,7 @@ export default {
           300: "#323B4B",
           400: "#4E5D78",
           500: "#404040",
+          600: "#eeeeee",
         },
         error: "#FF5630",
         success: {

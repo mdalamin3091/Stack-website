@@ -1,8 +1,11 @@
 import { useState } from "react";
 import { useUsersQuery } from "../redux/features/users/usersApi";
 import User from "../components/users/User";
-import { IUserResponse } from "../types";
+import { IUserDataResponse } from "../types";
 import Header from "../components/ui/Header";
+import Pagination from "../components/ui/Pagination";
+import ImportIcon from "../assets/icons/ImportIcon";
+import PlusIcon from "../assets/icons/PlusIcon";
 
 const UserList = () => {
   const [skip, setSkip] = useState(0);
@@ -17,13 +20,24 @@ const UserList = () => {
     setCurrentPage(page);
     setSkip((page - 1) * 10);
   };
+
   return (
     <>
       <Header />
       <div className="container mx-auto p-0 md:p-4">
-        <h2 className="text-2xl font-semibold mb-4 text-secondary-300 py-4">
-          User List
-        </h2>
+        <div className="flex items-center justify-between">
+          <h2 className="text-2xl font-semibold mb-4 text-secondary-300 py-4">
+            Users
+          </h2>
+          <div className="flex items-center justify-between gap-2">
+            <button className="inline-flex items-center justify-center px-4 py-2 text-base font-medium leading-6 text-gray-600 whitespace-no-wrap bg-white border border-gray-200 rounded-md shadow-sm gap-2">
+              <ImportIcon /> Import
+            </button>
+            <button className="inline-flex items-center justify-center px-4 py-2 text-white font-medium leading-6 whitespace-no-wrap bg-primary border border-gray-200 rounded-md shadow-sm gap-2">
+              <PlusIcon /> Add User
+            </button>
+          </div>
+        </div>
         <div className="shadow-table-shadow border border-gray-200 rounded-lg p-5">
           <table className="w-full text-sm text-left text-gray-500">
             <thead className="text-xs text-gray-700 bg-gray-50">
@@ -49,35 +63,17 @@ const UserList = () => {
             </thead>
             <tbody>
               {isSuccess &&
-                data.data.map((user: IUserResponse) => (
+                data.data.map((user: IUserDataResponse) => (
                   <User user={user} key={user.id} />
                 ))}
             </tbody>
           </table>
           {isSuccess && data.total_pages > 1 && (
-            <div className="mt-4">
-              <ul className="flex space-x-2 items-center justify-between">
-                <button
-                  className="inline-flex items-center justify-center px-4 py-2 text-base font-medium leading-6 text-gray-600 whitespace-no-wrap bg-white border border-gray-200 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:shadow-none disabled:bg-gray-200 disabled:cursor-not-allowed"
-                  onClick={() => handlePageChange(currentPage - 1)}
-                  disabled={currentPage === 1}
-                >
-                  Previous
-                </button>
-                <div className="flex items-center justify-between gap-2">
-                  <p>
-                    Page {data.per_page * data.page} of {data.total}
-                  </p>
-                </div>
-                <button
-                  className="inline-flex items-center justify-center px-4 py-2 text-base font-medium leading-6 text-gray-600 whitespace-no-wrap bg-white border border-gray-200 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:shadow-none disabled:bg-gray-200  disabled:cursor-not-allowed"
-                  onClick={() => handlePageChange(currentPage + 1)}
-                  disabled={currentPage === data.total_pages}
-                >
-                  Next
-                </button>
-              </ul>
-            </div>
+            <Pagination
+              data={data}
+              currentPage={currentPage}
+              handlePageChange={handlePageChange}
+            />
           )}
         </div>
       </div>
