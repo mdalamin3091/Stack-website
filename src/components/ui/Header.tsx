@@ -1,13 +1,14 @@
+import HeaderLogo from "@/assets/icons/HeaderLogo";
+import Notification from "@/assets/icons/Notification";
+import SearchIcon from "@/assets/icons/SearchIcon";
+import SettingIcon from "@/assets/icons/SettingIcon";
+import avatar from "@/assets/images/avatar.png";
+
 import { Link } from "react-router-dom";
-import HeaderLogo from "../../assets/icons/HeaderLogo";
-import SearchIcon from "../../assets/icons/SearchIcon";
-import SettingIcon from "../../assets/icons/SettingIcon";
-import Notification from "../../assets/icons/Notification";
-import avatar from "../../assets/images/avatar.png";
 
 const Header = () => {
   return (
-    <header className="header py-4 bg-brand-700">
+    <header className="header py-4 bg-primary">
       <nav className="container flex items-center justify-between">
         <div className="flex items-center justify-between">
           <Link to="/">

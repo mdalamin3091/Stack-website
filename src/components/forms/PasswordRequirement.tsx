@@ -1,15 +1,8 @@
+import { requirements } from "@/constants";
 import { FC, Fragment } from "react";
-const requirements = [
-  { re: /[0-9]/, label: "Includes number" },
-  { re: /[a-z]/, label: "Includes lowercase letter" },
-  { re: /[A-Z]/, label: "Includes uppercase letter" },
-  { re: /^.{6,}$/, label: "Password must be at least 6 characters" },
-  { re: /[$&+,:;=?@#|'<>.^*()%!-]/, label: "Includes special symbol" },
-  { re: /^.{6,32}$/, label: "6 to 32 characters" },
-];
 
 interface PropsType {
-  passwordValue: string;
+  passwordValue: string | undefined;
 }
 
 const PasswordRequirement: FC<PropsType> = ({ passwordValue }) => {
@@ -17,7 +10,7 @@ const PasswordRequirement: FC<PropsType> = ({ passwordValue }) => {
     let multiplier = passwordValue && passwordValue.length > 5 ? 0 : 1;
 
     requirements.forEach((requirement) => {
-      if (!requirement.re.test(passwordValue)) {
+      if (!requirement.re.test(passwordValue as string)) {
         multiplier += 1;
       }
     });
@@ -26,6 +19,7 @@ const PasswordRequirement: FC<PropsType> = ({ passwordValue }) => {
       Math.max(100 - (100 / (requirements.length + 1)) * multiplier, 10)
     );
   }
+
   const strength = getStrength();
   const color =
     strength === 100
@@ -34,7 +28,8 @@ const PasswordRequirement: FC<PropsType> = ({ passwordValue }) => {
       ? "bg-yellow-400 text-yellow-400"
       : strength > 10
       ? "bg-red-400"
-      : "bg-secondary-50";
+      : "bg-secondary";
+
   return (
     <Fragment>
       <div className="flex items-center justify-between gap-3 mb-1 mt-4 ">

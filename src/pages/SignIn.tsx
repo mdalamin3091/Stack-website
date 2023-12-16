@@ -1,14 +1,14 @@
 import { Fragment } from "react";
-import { useUserLoginMutation } from "../redux/features/auth/authApi";
-import useToastAndApiHandler from "../hooks/useToastAndApiHandler";
-import { IAuthError, IAuthResponse } from "../types";
 import { Link } from "react-router-dom";
-import FormInput from "../components/forms/FormInput";
 import { SubmitHandler } from "react-hook-form";
-import Form from "../components/forms/Form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { signInSchema } from "../schemas/authSchema";
-import Logo from "../assets/icons/logo";
+import useToastAndApiHandler from "@/hooks/useToastAndApiHandler";
+import FormInput from "@/components/forms/FormInput";
+import { IAuthError, IAuthResponse } from "@/types";
+import { useUserLoginMutation } from "@/redux/features/auth/authApi";
+import Logo from "@/assets/icons/logo";
+import { signInSchema } from "@/schemas/authSchema";
+import Form from "@/components/forms/Form";
 
 type FormValues = {
   email: string;

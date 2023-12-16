@@ -19,7 +19,6 @@ const FormInput = ({
     formState: { errors },
   } = useFormContext();
   const errorMessage = getErrorMessageByPropertyName(errors, name);
-  console.log("control", control._formValues);
   return (
     <>
       <Controller
@@ -35,23 +34,23 @@ const FormInput = ({
             </label>
             <input
               type={type}
-              className="w-full p-2 outline-none focus:outline-none text-secondary-100 px-[14px] py-[10px] border border-brand-50 rounded-lg focus:shadow-Input-basic"
+              className={`w-full p-2 outline-none focus:outline-none text-secondary-100 px-[14px] py-[10px] border border-gray-200 rounded-md focus:border-primary-300 focus:shadow-inputShadow  ${
+                errorMessage ? "shadow-errorShadow border-error-300" : ""
+              }`}
               placeholder={placeholder}
               disabled={disabled}
               {...field}
               value={value ? value : field.value}
             />
+            <small className="text-left text-error mb-4 mt-2 block text-sm font-semibold">
+              {errorMessage}
+            </small>
+            {type === "password" && isSignup && (
+              <PasswordRequirement passwordValue={field.value} />
+            )}
           </Fragment>
         )}
       />
-      <small className="text-left text-error mb-4 mt-2 block text-sm font-semibold">
-        {errorMessage}
-      </small>
-      {type === "password" && isSignup && (
-        <PasswordRequirement
-          passwordValue={control._formValues.password || ""}
-        />
-      )}
     </>
   );
 };

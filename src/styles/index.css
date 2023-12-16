@@ -4,18 +4,43 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  font-family: "Inter", sans-serif;
+@layer base {
+  :root {
+    /* colors */
+    --primary: #6941c6;
+    --brand-300: #d6bbfb;
+    --brand-600: #7f56d9;
+    --secondary: #f3f3f3;
+    --error: #f04438;
+    --error-300: #fda29b;
+
+    /* shadows */
+    --error-shadow: 0px 0px 0px 4px #fee4e2,
+      0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+    --input-focus-shadow: 0px 0px 0px 4px #f4ebff,
+      0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+
+    /* radius */
+    --radius: 14px;
+  }
+}
+
+@layer base {
+  body {
+    font-family: "Inter", sans-serif;
+  }
 }
 
 @layer components {
   .btn-primary {
     @apply bg-primary text-white px-4 rounded-lg disabled:bg-gray-200 w-full h-[44px] mb-5;
   }
+
   .pagination-btn {
     @apply px-3 py-1 rounded-xl cursor-pointer bg-white text-[#333333] flex items-center justify-center border border-secondary-100 disabled:bg-secondary-50 disabled:text-secondary-50 disabled:cursor-not-allowed;
   }
+
   .nav-link {
-    @apply list-none p-3 rounded-md cursor-pointer text-white hover:bg-brand-600;
+    @apply list-none p-3 rounded-sm cursor-pointer text-white hover:bg-primary-50;
   }
 }
