@@ -1,7 +1,7 @@
 # Stack Website
 
 [Stack](https://stack-block.netlify.app/)
-![Stack](https://i.ibb.co/G0nMFWh/Stack.png)
+![Stack](https://i.ibb.co/LCfhR7w/Stack-1.png)
 
 ## Overview
 
@@ -26,6 +26,8 @@ In this project, the goal is to create a simple website with a focus on performa
 
 6. _Folder Structure:_
    Maintain a well-structured project folder hierarchy to keep the codebase organized and easily maintainable. Components, Redux slices, styles, and utility functions will be neatly organized.
+7. _Form Validation:_
+   Validate all form inputs across the entire website using the "yup validator" with react-hook-form.
 
 ## Technology Stack
 
