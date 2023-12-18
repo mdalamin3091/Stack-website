@@ -56,7 +56,7 @@ const AddUser = ({ setShowModal }: { setShowModal: (x: boolean) => void }) => {
         <Button
           title="Cancel"
           type="button"
-          classes="bg-red-500 hover:bg-red-700 focus:ring-red-500"
+          classes="bg-red-500 hover:bg-red-700 focus:ring-red-500 mt-3 sm:mt-0"
           onClick={() => setShowModal(false)}
           disabled={isLoading}
         />

@@ -1,6 +1,6 @@
 # Stack Website
 
-[Stack](https://stack-block.netlify.app/)
+[Stack](https://stacks-web.netlify.app/)
 ![Stack](https://i.ibb.co/LCfhR7w/Stack-1.png)
 
 ## Overview
